@@ -3,7 +3,7 @@
 Kodlama by Erjan Ulujan
 Bot eğer çalışmaz ise tarayıcınızdan instagrama giriş yapın ve EditThisCookie eklentisini kurup csrf token ve mid'i değiştiriniz.
 */
-class instaCreator {
+class Titozer {
 
 	protected $csrf_token = 'oFvlN2FYqUL4zxHy3vzgWhjRVi73E6cw';
 	protected $mid_token = 'W3ErsgAEAAESdBKPIGvLPDpGH3Ha';

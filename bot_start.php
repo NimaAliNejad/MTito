@@ -1,5 +1,5 @@
 <?php
-require('class.php');
+require('Titozer.php');
 @set_time_limit(0);
 @clearstatcache();
 @ini_set('max_execution_time',0);
