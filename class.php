@@ -1,12 +1,9 @@
 <?php
-/* 
-Kodlama by Erjan Ulujan
-Bot eğer çalışmaz ise tarayıcınızdan instagrama giriş yapın ve EditThisCookie eklentisini kurup csrf token ve mid'i değiştiriniz.
-*/
+
 class instaCreator {
 
-	protected $csrf_token = 'oFvlN2FYqUL4zxHy3vzgWhjRVi73E6cw';
-	protected $mid_token = 'W3ErsgAEAAESdBKPIGvLPDpGH3Ha';
+	protected $csrf_token = 'o1tUhEBwyxgVBFdnePIT0v8YJlWqE04F';
+	protected $mid_token = 'VpwyKAAEAAGDjG7hYv7xetbzU2vy';
 
 	private function connectInstagram($username, $password, $email, $full_name, $proxy){
 
@@ -95,7 +92,7 @@ class instaCreator {
 				$randomUser_User_Name = $this->replaceTurkish("{$randomUser_First_Name}{$randomUser_Last_Name}".$this->generateNumbers('1234567890'));
 				$randomUser_Email_Domain = array('hotmail.com','gmail.com','icloud.com','outlook.com');
 				$randomUser_Email_Adress = "{$randomUser_User_Name}@".$randomUser_Email_Domain[mt_rand(0, count($randomUser_Email_Domain) - 1)];
-				$randomUser_Password = "ankara123";
+				$randomUser_Password = "bangkok123";
 				$randomUser_Proxy = $this->getProxy();
 				$randomUser_Save_Docs = "users.html";
 
@@ -106,9 +103,9 @@ class instaCreator {
 					$get    = fgets($file);
 					$catat  = fwrite($file, ''.$randomUser_User_Name.':'.$randomUser_Password.'<br>');
 					fclose($file);
-					echo "[!] ".$i.". hesap olusturma basarili: ".$randomUser_User_Name.":".$randomUser_Password."\n";
+					echo "[!] ".$i.". Movafagh ~ hesabe jadid sakhte shod: ".$randomUser_User_Name.":".$randomUser_Password."\n";
 				}else{
-					echo "[!] ".$i.". hesap olusturma basarisiz: ".$randomUser_User_Name.":".$randomUser_Password."\n";
+					echo "[!] ".$i.". khata ~ hesab sakhte nashod: ".$randomUser_User_Name.":".$randomUser_Password."\n";
 				}
 				sleep($sleep);
 			}

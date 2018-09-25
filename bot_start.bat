@@ -1,10 +1,10 @@
 @echo off
 cls
-title Instagram Automator by Ercan Ulucan
-echo =============BILGI============
+title Instagram Bot By NimaAliNejad
+echo =============NIMA============
 echo.
-echo Kodlama Sahibi: Ercan Ulucan
-echo   Instagram: @erjanulujan
+echo Coder : NimaAliNejad
+echo   Telegram: @RunsetCEO
 echo.
 php bot_start.php
 pause
