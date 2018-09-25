@@ -9,5 +9,5 @@ $count = trim(fgets(STDIN, 1024));
 echo "[?] Kac saniyede bir olusturulsun:";
 $sleep = trim(fgets(STDIN, 1024));
 echo "[!] Lutfen bekleyiniz. . .\n\n";
-$i = new instaCreator();
+$i = new Titozer();
 $i->userCreate($count,$sleep);
