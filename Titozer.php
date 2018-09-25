@@ -1,6 +1,14 @@
 <?php
+<<<<<<< HEAD:class.php
 
 class instaCreator {
+=======
+/* 
+Kodlama by Erjan Ulujan
+Bot eğer çalışmaz ise tarayıcınızdan instagrama giriş yapın ve EditThisCookie eklentisini kurup csrf token ve mid'i değiştiriniz.
+*/
+class Titozer {
+>>>>>>> master:Titozer.php
 
 	protected $csrf_token = 'o1tUhEBwyxgVBFdnePIT0v8YJlWqE04F';
 	protected $mid_token = 'VpwyKAAEAAGDjG7hYv7xetbzU2vy';
