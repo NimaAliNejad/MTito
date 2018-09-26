@@ -5,8 +5,8 @@ Bot eğer çalışmaz ise tarayıcınızdan instagrama giriş yapın ve EditThis
 */
 class instaCreator {
 
-	protected $csrf_token = 'oFvlN2FYqUL4zxHy3vzgWhjRVi73E6cw';
-	protected $mid_token = 'W3ErsgAEAAESdBKPIGvLPDpGH3Ha';
+	protected $csrf_token = 'o1tUhEBwyxgVBFdnePIT0v8YJlWqE04F';
+	protected $mid_token = 'VpwyKAAEAAGDjG7hYv7xetbzU2vy';
 
 	private function connectInstagram($username, $password, $email, $full_name, $proxy){
 
@@ -38,7 +38,7 @@ class instaCreator {
 		curl_setopt($channel, CURLOPT_HTTPHEADER, $headers);
 		$result = curl_exec($channel);
 		if(curl_errno($channel)){
-			echo 'Error:' . curl_error($channel);
+//			echo 'Error:' . curl_error($channel);
 		}
 		curl_close($channel);
 		return $result;
@@ -75,12 +75,12 @@ class instaCreator {
         return $randomString;
 	}
 
-    private function getProxy(){
+    private function getProxy($index){
         $proxyFile = @fopen('proxylist.txt', 'r');
         if($proxyFile){
             $getProxies = explode(PHP_EOL, fread($proxyFile, filesize('proxylist.txt')));
         }
-        $getRandom = (count($getProxies) > 0) ? $getProxies[rand(0, (count($getProxies) - 1))] : NULL;
+        $getRandom = (count($getProxies) > 0) ? $getProxies[$index] : NULL;
         return $getRandom;
     }
 
@@ -96,20 +96,31 @@ class instaCreator {
 				$randomUser_Email_Domain = array('hotmail.com','gmail.com','icloud.com','outlook.com');
 				$randomUser_Email_Adress = "{$randomUser_User_Name}@".$randomUser_Email_Domain[mt_rand(0, count($randomUser_Email_Domain) - 1)];
 				$randomUser_Password = "ankara123";
-				$randomUser_Proxy = $this->getProxy();
-				$randomUser_Save_Docs = "users.html";
+				for ($i = 0; $i < 50;$i++) {
+                    $randomUser_Proxy = $this->getProxy($i);
+                    $userCreate = $this->connectInstagram($randomUser_User_Name, $randomUser_Password, $randomUser_Email_Adress, $randomUser_Full_Name, $randomUser_Proxy);
+                    $userCreate = json_decode($userCreate);
+                    if ($userCreate->account_created == true) {
+                        echo "success ".$randomUser_Proxy;
+                        break;
+                    }
+					echo "failed ".$randomUser_Proxy."\n";
+                }
+//				$randomUser_Proxy = $this->getProxy();
+//				echo $randomUser_Proxy."\n";
+//				$randomUser_Save_Docs = "users.html";
 
-				$userCreate = $this->connectInstagram($randomUser_User_Name, $randomUser_Password, $randomUser_Email_Adress, $randomUser_Full_Name, $randomUser_Proxy);
-				$userCreate = json_decode($userCreate);
-				if($userCreate->account_created == "true"){
-					$file   = fopen(''.$randomUser_Save_Docs.'', 'r+') or die("file not found!");;
-					$get    = fgets($file);
-					$catat  = fwrite($file, ''.$randomUser_User_Name.':'.$randomUser_Password.'<br>');
-					fclose($file);
-					echo "[!] ".$i.". hesap olusturma basarili: ".$randomUser_User_Name.":".$randomUser_Password."\n";
-				}else{
-					echo "[!] ".$i.". hesap olusturma basarisiz: ".$randomUser_User_Name.":".$randomUser_Password."\n";
-				}
+//				$userCreate = $this->connectInstagram($randomUser_User_Name, $randomUser_Password, $randomUser_Email_Adress, $randomUser_Full_Name, $randomUser_Proxy);
+//				$userCreate = json_decode($userCreate);
+//				if($userCreate->account_created == "true"){
+//					$file   = fopen(''.$randomUser_Save_Docs.'', 'r+') or die("file not found!");;
+//					$get    = fgets($file);
+//					$catat  = fwrite($file, ''.$randomUser_User_Name.':'.$randomUser_Password.'<br>');
+//					fclose($file);
+//					echo "[!] ".$i.". hesap olusturma basarili: ".$randomUser_User_Name.":".$randomUser_Password."\n";
+//				}else{
+//					echo "[!] ".$i.". hesap olusturma basarisiz: ".$randomUser_User_Name.":".$randomUser_Password."\n";
+//				}
 				sleep($sleep);
 			}
 			
