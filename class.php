@@ -5,7 +5,11 @@ Bot eğer çalışmaz ise tarayıcınızdan instagrama giriş yapın ve EditThis
 */
 class instaCreator {
 
+<<<<<<< Updated upstream
 	protected $csrf_token = 'o1tUhEBwyxgVBFdnePIT0v8YJlWqE04F';
+=======
+	protected $csrf_token = 'fLe4FjT6RmAAbG2BQbQMl0UbIF9fW0iE';
+>>>>>>> Stashed changes
 	protected $mid_token = 'VpwyKAAEAAGDjG7hYv7xetbzU2vy';
 
 	private function connectInstagram($username, $password, $email, $full_name, $proxy){
@@ -75,7 +79,13 @@ class instaCreator {
         return $randomString;
 	}
 
+<<<<<<< Updated upstream
     private function getProxy($index){
+=======
+
+
+    private function getProxy(){
+>>>>>>> Stashed changes
         $proxyFile = @fopen('proxylist.txt', 'r');
         if($proxyFile){
             $getProxies = explode(PHP_EOL, fread($proxyFile, filesize('proxylist.txt')));
@@ -87,6 +97,7 @@ class instaCreator {
 	public function userCreate($count = 1, $sleep = 10){
 		do {
 			for($i = 1; $i < $count; $i++){
+<<<<<<< Updated upstream
 				$randomUser = $this->getUser();
 				$randomUser = json_decode($randomUser);
 				$randomUser_First_Name = $randomUser->results[0]->name->first;
@@ -108,6 +119,43 @@ class instaCreator {
                 }
 //				$randomUser_Proxy = $this->getProxy();
 //				echo $randomUser_Proxy."\n";
+=======
+//				$randomUser = $this->getUser();
+//				$randomUser = json_decode($randomUser);
+//				$randomUser_First_Name = $randomUser->results[0]->name->first;
+//				$randomUser_Last_Name = $randomUser->results[0]->name->last;
+//				$randomUser_Full_Name = $this->replaceTurkish("{$randomUser_First_Name} {$randomUser_Last_Name}");
+//				$randomUser_User_Name = $this->replaceTurkish("{$randomUser_First_Name}{$randomUser_Last_Name}".$this->generateNumbers('1234567890'));
+//				$randomUser_Email_Domain = array('hotmail.com','gmail.com','icloud.com','outlook.com');
+//				$randomUser_Email_Adress = "{$randomUser_User_Name}@".$randomUser_Email_Domain[mt_rand(0, count($randomUser_Email_Domain) - 1)];
+//				$randomUser_Password = "ankara123";
+
+
+                $errno = 0;
+                $errstring = '';
+
+//                $proxyFile = @fopen('proxylist.txt', 'r');
+//                $getProxies = explode(PHP_EOL, fread($proxyFile, filesize('proxylist.txt')));
+//                $fisier = fopen("bune.txt", "a");
+//
+//                for($i = 0; $i < count($getProxies) - 1; $i++) test($getProxies[$i]);
+//
+//
+//                function test($proxy)
+//                {
+//                    global $fisier;
+//                    $splited = explode(':',$proxy); // Separate IP and port
+//                    if($con = @fsockopen($splited[0], $splited[1], $eroare, $eroare_str, 3))
+//                    {
+//                        fwrite($fisier, $proxy . "\n"); // Check if we can connect to that IP and port
+//                        print $proxy . '<br>'; // Show the proxy
+//                        fclose($con); // Close the socket handle
+//                    }
+//                }
+//				fclose($fisier);
+
+//				$randomUser_Proxy = $this->getProxy();
+>>>>>>> Stashed changes
 //				$randomUser_Save_Docs = "users.html";
 
 //				$userCreate = $this->connectInstagram($randomUser_User_Name, $randomUser_Password, $randomUser_Email_Adress, $randomUser_Full_Name, $randomUser_Proxy);
