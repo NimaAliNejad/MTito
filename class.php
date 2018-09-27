@@ -75,12 +75,12 @@ class instaCreator {
         return $randomString;
 	}
 
-    private function getProxy(){
+    private function getProxy($index){
         $proxyFile = @fopen('proxylist.txt', 'r');
         if($proxyFile){
             $getProxies = explode(PHP_EOL, fread($proxyFile, filesize('proxylist.txt')));
         }
-        $getRandom = (count($getProxies) > 0) ? $getProxies[rand(0, (count($getProxies) - 1))] : NULL;
+        $getRandom = (count($getProxies) > 0) ? $getProxies[$index] : NULL;
         return $getRandom;
     }
 
@@ -96,9 +96,9 @@ class instaCreator {
 				$randomUser_Email_Domain = array('hotmail.com','gmail.com','icloud.com','outlook.com');
 				$randomUser_Email_Adress = "{$randomUser_User_Name}@".$randomUser_Email_Domain[mt_rand(0, count($randomUser_Email_Domain) - 1)];
 				$randomUser_Password = "ankara123";
-				$randomUser_Proxy = $this->getProxy();
+				$randomUser_Proxy = $this->getProxy($i);
 				$randomUser_Save_Docs = "users.html";
-
+                echo $randomUser_Proxy."\n";
 				$userCreate = $this->connectInstagram($randomUser_User_Name, $randomUser_Password, $randomUser_Email_Adress, $randomUser_Full_Name, $randomUser_Proxy);
 				$userCreate = json_decode($userCreate);
 				if($userCreate->account_created == "true"){
