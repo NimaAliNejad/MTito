@@ -76,12 +76,12 @@ class instaCreator {
         return $randomString;
 	}
 
-    private function getProxy($index){
+    private function getProxy(){
         $proxyFile = @fopen('proxylist.txt', 'r');
         if($proxyFile){
             $getProxies = explode(PHP_EOL, fread($proxyFile, filesize('proxylist.txt')));
         }
-        $getRandom = (count($getProxies) > 0) ? $getProxies[$index] : NULL;
+        $getRandom = (count($getProxies) > 0) ? $getProxies[rand(0, (count($getProxies) - 1))] : NULL;
         return $getRandom;
     }
 
@@ -101,7 +101,7 @@ class instaCreator {
 				$randomUser_Email_Adress = "{$randomUser_User_Name}@".$randomUser_Email_Domain[mt_rand(0, count($randomUser_Email_Domain) - 1)];
 				$randomUser_Password = "ankara123";
 //        for ($i = 0; $i<50;$i++) {
-            $proxy = $this->getProxy($i);
+            $proxy = $this->getProxy();
             echo "\n".$proxy." \n";
             system("curl -k --insecure --socks4 ".$proxy." -d \"email=".$randomUser_Email_Adress."&password=ankara123&username=".$randomUser_User_Name."&first_name=".$randomUser_Full_Name."&seamless_login_enabled=1&tos_version=row\" -H 'Accept-Encoding: gzip,deflate' -H \"Content-Type: application/x-www-form-urlencoded\" -H \"Host: www.instagram.com\" -H \"Cookie: fbm_124024574287414=base_domain=.instagram.com; rur=PRN; csrftoken=fLe4FjT6RmAAbG2BQbQMl0UbIF9fW0iE; mid=VpwyKAAEAAGDjG7hYv7xetbzU2vy; fbm_124024574287414=\"base_domain =.instagram.com\"; mcd=1\" -H \"User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.124 Safari/537.36\" -H \"Origin: https://www.instagram.com\" -H \"X-Instagram-Ajax: 8958fe1e75ab\" -H \"Content-Type: application/x-www-form-urlencoded\" -H \"Accept: */*\" -H \"X-Requested-With: XMLHttpRequest\" -H \"Save-Data: on\" -H \"X-Csrftoken: fLe4FjT6RmAAbG2BQbQMl0UbIF9fW0iE\" -H \"Referer: https://www.instagram.com/\" -H \"Accept-Language: en-US,en;q=0.8,id;q=0.6\" -X POST https://www.instagram.com/accounts/web_create_ajax/");
 //    sleep(10);

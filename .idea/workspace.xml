@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="91b349bf-123c-408a-97dd-0b7a005738bc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/bot_start.php" beforeDir="false" afterPath="$PROJECT_DIR$/bot_start.php" afterDir="false" />
+    <list default="true" id="85d5a32c-dbad-4d7c-9396-0d8764939dba" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/class.php" beforeDir="false" afterPath="$PROJECT_DIR$/class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proxylist.txt" beforeDir="false" afterPath="$PROJECT_DIR$/proxylist.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,8 +48,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1032">
-              <caret line="123" column="25" lean-forward="true" selection-start-line="123" selection-start-column="25" selection-end-line="123" selection-end-column="25" />
+            <state relative-caret-position="297">
+              <caret line="95" column="78" lean-forward="true" selection-start-line="95" selection-start-column="78" selection-end-line="95" selection-end-column="78" />
             </state>
           </provider>
         </entry>
@@ -63,8 +62,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bot_start.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="14" column="130" selection-start-line="14" selection-start-column="130" selection-end-line="14" selection-end-column="130" />
+            <state relative-caret-position="119">
+              <caret line="27" column="34" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -95,6 +94,7 @@
     <option name="width" value="644" />
     <option name="height" value="688" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -146,7 +146,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11044000" />
+    <option name="totallyTimeSpent" value="11210000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -190,24 +190,18 @@
     <entry file="file://$PROJECT_DIR$/bot_start.bat">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/helper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="9" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/helper.php" />
     <entry file="file://$PROJECT_DIR$/bot_start.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="14" column="130" selection-start-line="14" selection-start-column="130" selection-end-line="14" selection-end-column="130" />
+        <state relative-caret-position="119">
+          <caret line="27" column="34" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1032">
-          <caret line="123" column="25" lean-forward="true" selection-start-line="123" selection-start-column="25" selection-end-line="123" selection-end-column="25" />
+        <state relative-caret-position="297">
+          <caret line="95" column="78" lean-forward="true" selection-start-line="95" selection-start-column="78" selection-end-line="95" selection-end-column="78" />
         </state>
       </provider>
     </entry>
