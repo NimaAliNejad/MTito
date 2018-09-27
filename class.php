@@ -15,6 +15,7 @@ class instaCreator {
 		curl_setopt($channel, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($channel, CURLOPT_POSTFIELDS, "email=".$email."&password=".$password."&username=".$username."&first_name=".$full_name."&seamless_login_enabled=1&tos_version=row");
 		curl_setopt($channel, CURLOPT_POST, 1);
+		curl_setopt($channel,CURLOPT_SSL_VERIFYPEER,0);
 		curl_setopt($channel, CURLOPT_ENCODING, 'gzip, deflate');
 		if($proxy){
 			curl_setopt($channel, CURLOPT_PROXY, $proxy);
@@ -75,18 +76,21 @@ class instaCreator {
         return $randomString;
 	}
 
-    private function getProxy(){
+    private function getProxy($index){
         $proxyFile = @fopen('proxylist.txt', 'r');
         if($proxyFile){
             $getProxies = explode(PHP_EOL, fread($proxyFile, filesize('proxylist.txt')));
         }
-        $getRandom = (count($getProxies) > 0) ? $getProxies[rand(0, (count($getProxies) - 1))] : NULL;
+        $getRandom = (count($getProxies) > 0) ? $getProxies[$index] : NULL;
         return $getRandom;
     }
 
 	public function userCreate($count = 1, $sleep = 10){
-		do {
+//		do {
 			for($i = 1; $i < $count; $i++){
+//        for ($i =0;$i<50;$i++) {
+//            echo "curl -k --insecure --socks4 103.216.82.198:6667 -d \"email=naadxdrawdhhkbinda@gmail.com&password=y00sefabad&username=nimaadrawjkbhd123dia&first_name=raaawvajnjnrcaws&seamless_login_enabled=1&tos_version=row\" -H 'Accept-Encoding: gzip,deflate' -H \"Content-Type: application/x-www-form-urlencoded\" -H \"Host: www.instagram.com\" -H \"Cookie: fbm_124024574287414=base_domain=.instagram.com; rur=PRN; csrftoken=fLe4FjT6RmAAbG2BQbQMl0UbIF9fW0iE; mid=VpwyKAAEAAGDjG7hYv7xetbzU2vy; fbm_124024574287414=\"base_domain =.instagram . com\"; mcd=1\" -H \"User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.124 Safari/537.36\" -H \"Origin: https://www.instagram.com\" -H \"X-Instagram-Ajax: 8958fe1e75ab\" -H \"Content-Type: application/x-www-form-urlencoded\" -H \"Accept: */*\" -H \"X-Requested-With: XMLHttpRequest\" -H \"Save-Data: on\" -H \"X-Csrftoken: fLe4FjT6RmAAbG2BQbQMl0UbIF9fW0iE\" -H \"Referer: https://www.instagram.com/\" -H \"Accept-Language: en-US,en;q=0.8,id;q=0.6\" -X POST https://www.instagram.com/accounts/web_create_ajax/"
+//        }
 				$randomUser = $this->getUser();
 				$randomUser = json_decode($randomUser);
 				$randomUser_First_Name = $randomUser->results[0]->name->first;
@@ -96,25 +100,33 @@ class instaCreator {
 				$randomUser_Email_Domain = array('hotmail.com','gmail.com','icloud.com','outlook.com');
 				$randomUser_Email_Adress = "{$randomUser_User_Name}@".$randomUser_Email_Domain[mt_rand(0, count($randomUser_Email_Domain) - 1)];
 				$randomUser_Password = "ankara123";
-				$randomUser_Proxy = $this->getProxy();
+//        for ($i = 0; $i<50;$i++) {
+            $proxy = $this->getProxy($i);
+            echo "\n".$proxy." \n";
+            system("curl -k --insecure --socks4 ".$proxy." -d \"email=".$randomUser_Email_Adress."&password=ankara123&username=".$randomUser_User_Name."&first_name=".$randomUser_Full_Name."&seamless_login_enabled=1&tos_version=row\" -H 'Accept-Encoding: gzip,deflate' -H \"Content-Type: application/x-www-form-urlencoded\" -H \"Host: www.instagram.com\" -H \"Cookie: fbm_124024574287414=base_domain=.instagram.com; rur=PRN; csrftoken=fLe4FjT6RmAAbG2BQbQMl0UbIF9fW0iE; mid=VpwyKAAEAAGDjG7hYv7xetbzU2vy; fbm_124024574287414=\"base_domain =.instagram.com\"; mcd=1\" -H \"User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.124 Safari/537.36\" -H \"Origin: https://www.instagram.com\" -H \"X-Instagram-Ajax: 8958fe1e75ab\" -H \"Content-Type: application/x-www-form-urlencoded\" -H \"Accept: */*\" -H \"X-Requested-With: XMLHttpRequest\" -H \"Save-Data: on\" -H \"X-Csrftoken: fLe4FjT6RmAAbG2BQbQMl0UbIF9fW0iE\" -H \"Referer: https://www.instagram.com/\" -H \"Accept-Language: en-US,en;q=0.8,id;q=0.6\" -X POST https://www.instagram.com/accounts/web_create_ajax/");
+//    sleep(10);
+//        }
+
+
 				$randomUser_Save_Docs = "users.html";
 
-				$userCreate = $this->connectInstagram($randomUser_User_Name, $randomUser_Password, $randomUser_Email_Adress, $randomUser_Full_Name, $randomUser_Proxy);
-				$userCreate = json_decode($userCreate);
-				if($userCreate->account_created == "true"){
-					$file   = fopen(''.$randomUser_Save_Docs.'', 'r+') or die("file not found!");;
-					$get    = fgets($file);
-					$catat  = fwrite($file, ''.$randomUser_User_Name.':'.$randomUser_Password.'<br>');
-					fclose($file);
-					echo "[!] ".$i.". hesap olusturma basarili: ".$randomUser_User_Name.":".$randomUser_Password."\n";
-				}else{
-					echo "[!] ".$i.". hesap olusturma basarisiz: ".$randomUser_User_Name.":".$randomUser_Password."\n";
-				}
+//				$userCreate = $this->connectInstagram($randomUser_User_Name, $randomUser_Password, $randomUser_Email_Adress, $randomUser_Full_Name, $randomUser_Proxy);
+//				$userCreate = json_decode($userCreate);
+//				if($userCreate->account_created == "true"){
+//					$file   = fopen(''.$randomUser_Save_Docs.'', 'r+') or die("file not found!");;
+//					$get    = fgets($file);
+//					$catat  = fwrite($file, ''.$randomUser_User_Name.':'.$randomUser_Password.'<br>');
+//					fclose($file);
+//					echo "[!] ".$i.". hesap olusturma basarili: ".$randomUser_User_Name.":".$randomUser_Password."\n";
+//				}else{
+//					echo "[!] ".$i.". hesap olusturma basarisiz: ".$randomUser_User_Name.":".$randomUser_Password."\n";
+//				}
 				sleep($sleep);
 			}
-			
-		}while($count == 'false');
+
+//		}while($count == 'false');
 	}
 }
+
 
 
